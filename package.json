@@ -2,10 +2,10 @@
   "name": "workspace",
   "version": "1.0.0",
   "description": "MVP Sistemas Web Commit Jr 2021.2",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts":{
-    "dev":"ts-node-dev --transpile-only --ignore-watch node_modules index.ts",
-    "start": "nodemon src/index.ts"
+    "dev":"ts-node-dev --transpile-only --ignore-watch node_modules server.ts",
+    "start": "nodemon src/server.ts"
   },
   "repository": {
     "type": "git",
