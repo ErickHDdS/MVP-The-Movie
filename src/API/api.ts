@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import GenreService from '../Domain/GenreService';
+import GenreMovieService from '../Domain/GenreMovieService';
+import { GetGenresList } from '../Repository/Repository';
 
 class GenreController {
     async getGenreList (request: Request, response: Response) {
@@ -18,4 +20,25 @@ class GenreController {
     };
 };
 
-export default GenreController;
+class GenreMovieController {
+    async getMovieList (request: Request, response:Response) {
+        try {
+            const genreData = new GenreMovieService();
+            //const genres = ;
+            //const genres = '99';
+            const genreMovie = await genreData.getMovieListGenre(genres);
+
+
+            if(Number.isInteger(parseInt(genres)) && genreMovie != null){
+                return response.send(genreMovie)
+            };
+
+            return response.send({ err: 'Err' });
+        } catch(err) {
+            throw err;
+        }
+    };
+};
+
+
+export {GenreController, GenreMovieController } ;

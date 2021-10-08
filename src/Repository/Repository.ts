@@ -21,4 +21,23 @@ async function GetGenresList(){
     };
 };
 
-export default GetGenresList;
+async function GetMoviesGenre(genres:string){
+    try {
+        const response = await api.get(`/3/discover/movie?api_key=${api_key}&language=en-US&year=2021&with_genres=${genres}`);
+        if(response.status >= 200 && response.status < 300) {
+            const genreMovieList = response.data;
+            return {
+                status: true,
+                data: genreMovieList,
+            };
+        };
+        return {
+            status: false,
+            data: "Failed the request"
+        };
+    } catch(err){
+        throw (err);
+    };
+};
+
+export { GetGenresList, GetMoviesGenre };

@@ -1,9 +1,11 @@
 import { Router } from 'express';
 const router = Router();
-import GenreController from './api';
+import { GenreController, GenreMovieController } from './api';
 
 const GenreList = new GenreController();
+const GenreMovieList = new GenreMovieController();
 
 router.get('/genreList', GenreList.getGenreList);
+router.get('/movieList', GenreMovieList.getMovieList);
 
 export default router;

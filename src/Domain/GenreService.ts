@@ -1,4 +1,4 @@
-import GetGenresList from '../Repository/Repository';
+import { GetGenresList } from '../Repository/Repository';
 
 class GenreService {
     async getGenreList(){
@@ -6,6 +6,7 @@ class GenreService {
         if(repositoryResponse.status){
             return repositoryResponse;
         };
+        return {message: "Failed to make the request"};
     }
 }
 
