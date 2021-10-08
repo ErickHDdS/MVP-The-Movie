@@ -6,6 +6,6 @@ const GenreList = new GenreController();
 const GenreMovieList = new GenreMovieController();
 
 router.get('/genreList', GenreList.getGenreList);
-router.get('/movieList', GenreMovieList.getMovieList);
+router.get('/movieList/:genre', GenreMovieList.getMovieList);
 
 export default router;

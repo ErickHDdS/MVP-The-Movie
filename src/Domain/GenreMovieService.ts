@@ -1,7 +1,7 @@
 import { GetMoviesGenre } from '../Repository/Repository';
 
 class GenreMovieService {
-    async getMovieListGenre(genres:string){
+    async getMovieListGenre(genres:string) {
         const repositoryResponse = await GetMoviesGenre(genres);
         if(repositoryResponse.status){
             return repositoryResponse;

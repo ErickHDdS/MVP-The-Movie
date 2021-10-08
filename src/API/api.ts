@@ -24,10 +24,8 @@ class GenreMovieController {
     async getMovieList (request: Request, response:Response) {
         try {
             const genreData = new GenreMovieService();
-            //const genres = ;
-            //const genres = '99';
+            const genres = request.params.genre;
             const genreMovie = await genreData.getMovieListGenre(genres);
-
 
             if(Number.isInteger(parseInt(genres)) && genreMovie != null){
                 return response.send(genreMovie)
@@ -36,9 +34,9 @@ class GenreMovieController {
             return response.send({ err: 'Err' });
         } catch(err) {
             throw err;
-        }
+        };
     };
 };
 
 
-export {GenreController, GenreMovieController } ;
+export {GenreController, GenreMovieController };
