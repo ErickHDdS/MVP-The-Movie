@@ -40,4 +40,42 @@ async function GetMoviesGenre(genres:string) {
     };
 };
 
-export { GetGenresList, GetMoviesGenre };
+async function GetMoviesDetails(movieId:number) {
+    try {
+        const response = await api.get(`/3/movie/${movieId}?api_key=${api_key}&language=en-US`);
+        if(response.status >= 200 && response.status < 300) {
+            const movieDetails = response.data;
+            return {
+                status: true,
+                data: movieDetails,
+            };
+        };
+        return {
+            status: false,
+            data: "Failed the request"
+        };
+    } catch(err) {
+        throw (err);
+    };
+};
+
+async function GetSimiliarMoviesList(movieId:number) {
+    try {
+        const response = await api.get(`/3/movie/${movieId}/similar?api_key=${api_key}&language=en-US&page=1`);
+        if(response.status >= 200 && response.status < 300) {
+            const movieSimiliar = response.data;
+            return {
+                status: true,
+                data: movieSimiliar,
+            };
+        };
+        return {
+            status: false,
+            data: "Failed the request"
+        };
+    } catch(err) {
+        throw (err);
+    };
+};
+
+export { GetGenresList, GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList };
