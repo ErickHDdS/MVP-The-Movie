@@ -1,7 +1,7 @@
 import { GetGenresList } from '../Repository/Repository';
 
-// genre list
 class GenreService {
+    // genre list
     async getGenreList() {
         const repositoryResponse = await GetGenresList();
         if(repositoryResponse.status) {
