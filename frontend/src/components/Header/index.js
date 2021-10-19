@@ -1,19 +1,23 @@
 import React from 'react';
-//import './style.css';
-import {ReactComponent as MovieIcon} from '../../assets/movie-svgrepo-com.svg'
+import './style.css';
+import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
+import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.svg';
 
 
 function Header() {
     return (
-       <header className="header-initial">
-            <MovieIcon/>
+       <header className="main-header">
+            <LogoIcon className = "logoIcon"/>
             <div className="menu-links">
                 <span> Releases </span>
                 <span> | </span>
                 <span> Highlights </span>
             </div>
 
-            <input type="text" placeholder="Search" className="search-input"></input>
+            <div className="search">
+                <SearchIcon className = "searchIcon"/>
+                <input type="text" placeholder="Search" className="search-input"></input>
+            </div>
        </header>
     );
 }
