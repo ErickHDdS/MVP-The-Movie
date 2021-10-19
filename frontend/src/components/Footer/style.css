@@ -5,6 +5,8 @@
     font-weight:400;
     text-align: center;
     background-color: #A4A4A4;
+    font-size: 18px;
+    color: #FFF;
 }
 
 @media (orientation: landscape) {
@@ -23,8 +25,11 @@
 }
 
 .footer-icon-developer {
-        align-items: center;
-        padding: auto;
+    align-items: center;
+}
+
+:any-link {
+    color: #FFF;
 }
 
 @media (orientation: landscape) {
