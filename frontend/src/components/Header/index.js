@@ -7,16 +7,17 @@ import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.sv
 function Header() {
     return (
        <header className="main-header">
-            <LogoIcon className = "logoIcon"/>
+            <a href="http://localhost:3000/" target="_new" className = "header-icon-logo">
+                    <LogoIcon />
+            </a>
+            
             <div className="menu-links">
-                <span> Releases </span>
-                <span> | </span>
-                <span> Highlights </span>
+                Releases | Highlights 
             </div>
 
             <div className="search">
                 <SearchIcon className = "searchIcon"/>
-                <input type="text" placeholder="Search" className="search-input"></input>
+                <input type="text" placeholder="Movie" className="search-input"></input>
             </div>
        </header>
     );
