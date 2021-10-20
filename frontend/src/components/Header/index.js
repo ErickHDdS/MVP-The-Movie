@@ -8,9 +8,9 @@ function Header() {
     return (
        <header className="main-header">
             <a href="http://localhost:3000/" target="_new" className = "header-icon-logo">
-                    <LogoIcon />
+                <LogoIcon />
             </a>
-            
+
             <div className="menu-links">
                 Releases | Highlights 
             </div>
