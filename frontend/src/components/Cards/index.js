@@ -5,7 +5,9 @@ import './style.css';
 function Cards() {
     return (
         <div className="cards">
-            <img src={Pull} width="170px"/>
+            <a href="https://github.com/ErickHDdS" target="_new">
+                <img src={Pull} alt="Pull, a Arara" width="170px"/>   
+            </a>
         </div> 
     )
 };
