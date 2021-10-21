@@ -6,7 +6,7 @@
     text-align: center;
     background-color: #A4A4A4;
     font-size: 18px;
-    color: #FFF;
+    color: #E2E8EB;
 }
 
 @media (orientation: landscape) {
@@ -38,5 +38,5 @@
 }
 
 :any-link {
-    color: #FFF;
+    color: #E2E8EB;
 }

@@ -7,6 +7,7 @@
     height: 80px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:400;
+    color: #E2E8EB;
 }
 
 @media (orientation: landscape) {
@@ -17,12 +18,11 @@
     .menu-links {
         font-size: 30px;
         align-items: center;
-        color: #FFF;
     }
 
     .search {
         border-radius: 6px;
-        border: 1px solid #FFF;
+        border: 1px solid #E2E8EB;
         width: auto;
         display: flex;
     }
@@ -36,7 +36,7 @@
         display: inline !important;
         border: none;
         background-color: #A4A4A4;
-        color: #FFF;
+        color: #515151;
     }
 
     .search-input:focus {
@@ -56,12 +56,11 @@
     .menu-links {
         font-size: 18px;
         margin-left: 5vw;
-        color: #FFF;
     }
 
     .search {
         border-radius: 6px;
-        border: 1px solid #FFF;
+        border: 1px solid #E2E8EB;
         width: auto;
         display: flex;
     }
@@ -75,7 +74,7 @@
         display: inline !important;
         border: none;
         background-color: #A4A4A4;
-        color: #FFF;
+        color: #515151;
         width: 70px;
     }
 
