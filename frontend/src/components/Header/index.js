@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
 import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.svg';
@@ -7,9 +8,9 @@ import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.sv
 function Header() {
     return (
        <header className="main-header">
-            <a href="http://localhost:3000/" target="_new" className = "header-icon-logo">
-                <LogoIcon />
-            </a>
+            <Link href="http://localhost:3000/" underline="hover" className = "header-icon-logo">
+                {<LogoIcon />}
+            </Link>
 
             <div className="menu-links">
                 Releases | Highlights 

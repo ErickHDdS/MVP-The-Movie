@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as CommitJr} from'../../assets/commitjr_new_cinza.svg';
 import {ReactComponent as GitHubIcon} from '../../assets/github.svg';
+import {ReactComponent as LinkedinIcon} from '../../assets/linkedin.svg';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
 
 function date() {
@@ -12,21 +14,27 @@ function Footer() {
     return (
         <footer className="main-footer">
             <div className="footer-icon-developer">
-                Developed by <a href="https://www.linkedin.com/in/erickhenriquedds/">Erick Henrique</a><br></br><br></br>
-                <a href="https://github.com/ErickHDdS" target="_new">
-                    <GitHubIcon /><br></br><br></br>   
-                </a>
+                Developed by 
+                <Link 
+                    href="https://www.linkedin.com/in/erickhenriquedds/" underline="hover"> Erick Henrique
+                </Link><br></br><br></br>
+                <Link href="https://github.com/ErickHDdS">
+                    {<GitHubIcon />} 
+                        <Link href="https://www.linkedin.com/in/erickhenriquedds/"> 
+                            {<LinkedinIcon />}<br></br><br></br>
+                        </Link>   
+                </Link>
                 Copyright © {date()}
             </div>
             <div className="footer-icon-commit">
-                <a href="https://www.linkedin.com/company/commitjr/?originalSubdomain=br" target="_new">
-                    <CommitJr />
-                </a>
+                <Link href="https://www.linkedin.com/company/commitjr/?originalSubdomain=br" underline="hover">
+                    {<CommitJr />}
+                </Link>
             </div>
             <div className="footer-icon-logo">
-                <a href="http://localhost:3000/" target="_new">
-                    <LogoIcon />
-                </a>
+                <Link href="http://localhost:3000/" underline="hover">
+                        {<LogoIcon />}
+                </Link>
             </div>
         </footer>
     );

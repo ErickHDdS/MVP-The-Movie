@@ -33,3 +33,20 @@
         font-size: 555px;
     }
 }
+
+@media (orientation: portrait) {
+    .title {
+        display: none;
+    }
+
+    .button-genres-movie {
+        display: none;
+    }
+
+    .button-load-more {
+        display: none;
+    }
+    .MuiButton-root {
+        display: none;
+    }
+}
