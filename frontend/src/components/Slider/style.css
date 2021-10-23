@@ -1,0 +1,43 @@
+.main-slider {
+    background-color: #C4C4C4;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:400;
+    font-size: 18px;
+    color: #515151;
+}
+
+@media (orientation: landscape) {
+    .movie-video {
+        padding-top: 10px;
+        padding-left: 150px;
+    }
+
+    .movie-title {
+        font-size: 25px;
+        text-align: right;
+        margin: -400px 900px 0px 0px;
+    }
+
+    .movie-synopsis>textarea {
+        background-color: #C4C4C4;
+        border: none;
+        margin: 0px 0px 0px 795px;
+    }
+
+    .movie-original-tile, .movie-genres, .movie-premiere, .movie-adult-question {
+        margin: 10px 0px 0px 795px;
+    }
+
+    .movie-time {
+        margin: -25px 0px 0px 1010px;
+    }
+
+    .avaliation {
+        margin: 65px 0px 0px 795px;
+    }
+
+    .carousel-dots {
+        text-align: -webkit-center;
+        margin-top: 50px;
+    }
+}
