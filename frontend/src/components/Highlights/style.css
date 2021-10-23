@@ -1,17 +1,15 @@
 .main-highlights {
     text-align: center;
     background-color: #DDDDDD;
-    height: 530px;
+    height: 580px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:400;
     font-size: 18px;
-    
 }
 
 @media (orientation: landscape) {
     .title {
         margin-top: 0px;
-        padding-top: 10px;
         font-size: 35px;
         text-decoration-line: underline;
         color: #515151;
@@ -46,6 +44,7 @@
     .button-load-more {
         display: none;
     }
+    
     .MuiButton-root {
         display: none;
     }
