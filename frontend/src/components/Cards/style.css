@@ -1,6 +1,15 @@
-.cards {
-    margin: 0px;
-    display: inline-block;
-    margin-left: 90px;
-    margin-right: 90px;
+@media (orientation: landscape) {
+    .cards {
+        margin: 0px;
+        display: inline-block;
+        margin-left: 90px;
+        margin-right: 90px;
+    }
+}
+
+@media (orientation: portrait) {
+    .cards {
+        padding: 20px 5px 0 5px;
+        display: inline;
+    }
 }

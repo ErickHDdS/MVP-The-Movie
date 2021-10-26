@@ -1,13 +1,13 @@
-.main-highlights {
-    text-align: center;
-    background-color: #DDDDDD;
-    height: 580px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight:400;
-    font-size: 18px;
-}
-
 @media (orientation: landscape) {
+    .main-highlights {
+        text-align: center;
+        background-color: #DDDDDD;
+        height: 580px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:400;
+        font-size: 18px;
+    }
+
     .title {
         margin-top: 0px;
         font-size: 35px;
@@ -33,19 +33,30 @@
 }
 
 @media (orientation: portrait) {
+    .main-highlights {
+        text-align: center;
+        background-color: #DDDDDD;
+        height: 650px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:400;
+        font-size: 18px;
+    }
+
     .title {
-        display: none;
+        margin: 0;
+        font-size: 18px;
+        text-decoration-line: underline;
+        color: #515151;
     }
 
     .button-genres-movie {
-        display: none;
+        padding: 10px 5px 0 5px;
+        display: inline;
     }
 
     .button-load-more {
-        display: none;
+        display: inline;
+        padding: 10px 5px 0 5px;
     }
-    
-    .MuiButton-root {
-        display: none;
-    }
+
 }

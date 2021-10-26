@@ -18,12 +18,14 @@ function Footer() {
                 <Link 
                     href="https://www.linkedin.com/in/erickhenriquedds/" underline="hover"> Erick Henrique
                 </Link><br></br><br></br>
-                <Link href="https://github.com/ErickHDdS">
+
+                <Link href="https://github.com/ErickHDdS" className="github-icon" > 
                     {<GitHubIcon />} 
-                        <Link href="https://www.linkedin.com/in/erickhenriquedds/"> 
-                            {<LinkedinIcon />}<br></br><br></br>
-                        </Link>   
-                </Link>
+                </Link> <tab></tab>
+
+                <Link href="https://www.linkedin.com/in/erickhenriquedds/" className="linkedin-icon"> 
+                    {<LinkedinIcon />}<br></br><br></br>
+                </Link>   
                 Copyright © {date()}
             </div>
             <div className="footer-icon-commit">
