@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Dots from 'react-carousel-dots';
 
- function Slider() {
+function Slider() {
     return(
         <section className="main-slider">
-             <div className={"slids"}>
+             <div className={"slides"}>
                 <div className="movie-video" >
                     <iframe
                         width="616"

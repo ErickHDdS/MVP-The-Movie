@@ -28,16 +28,19 @@ function Footer() {
                 </Link>   
                 Copyright © {date()}
             </div>
+
             <div className="footer-icon-commit">
                 <Link href="https://www.linkedin.com/company/commitjr/?originalSubdomain=br" underline="hover">
                     {<CommitJr />}
                 </Link>
             </div>
+
             <div className="footer-icon-logo">
                 <Link href="http://localhost:3000/" underline="hover">
                         {<LogoIcon />}
                 </Link>
             </div>
+            
         </footer>
     );
 }
