@@ -2,7 +2,8 @@ import React from 'react';
 import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
-import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.svg';
+//import {ReactComponent as SearchIcon} from '../../assets/search_24px_outlined.svg';
+import { FaSearch } from "react-icons/fa";
 
 function Header() {
     return (
@@ -16,7 +17,7 @@ function Header() {
             </div>
 
             <div className="search">
-                <SearchIcon className = "searchIcon"/>
+                <FaSearch color="#515151" className = "searchIcon"/>
                 <input type="text" placeholder="Movie" className="search-input"></input>
             </div>
        </header>

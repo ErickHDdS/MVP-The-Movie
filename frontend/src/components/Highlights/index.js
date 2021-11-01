@@ -8,11 +8,10 @@ import Select from '@mui/material/Select';
 
 import Cards from '../Cards';
 import Button from '@mui/material/Button';
-import {ReactComponent as AddIcon} from'../../assets/add.svg';
 
 import getGenre from '../../APIs/GetGenre';
 import {getMovieListOfGenre, getMovieDetail, getMovieSimiliar} from '../../APIs/GetMovie';
-import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -139,7 +138,7 @@ function Highlights() {
                     fontSize="18px"
                     onClick={control}
                     
-                    startIcon={quantCards == 3 ? (<AddIcon /> ) : (<AiOutlineMinus />) }>More movies</Button>
+                    startIcon={quantCards == 3 ? (<AiOutlinePlus /> ) : (<AiOutlineMinus />) }>More movies</Button>
                   
             </div>
        </section>

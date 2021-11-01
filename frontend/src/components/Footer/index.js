@@ -2,9 +2,10 @@ import React from 'react';
 import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as CommitJr} from'../../assets/commitjr_new_cinza.svg';
-import {ReactComponent as GitHubIcon} from '../../assets/github.svg';
-import {ReactComponent as LinkedinIcon} from '../../assets/linkedin.svg';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
+
+import { GoMarkGithub } from "react-icons/go";
+import { FaLinkedinIn } from "react-icons/fa";
 
 function date() {
     return new Date().getFullYear();
@@ -20,12 +21,13 @@ function Footer() {
                 </Link><br></br><br></br>
 
                 <Link href="https://github.com/ErickHDdS" className="github-icon" > 
-                    {<GitHubIcon />} 
+                    {<GoMarkGithub />} 
                 </Link> <tab></tab>
 
                 <Link href="https://www.linkedin.com/in/erickhenriquedds/" className="linkedin-icon"> 
-                    {<LinkedinIcon />}<br></br><br></br>
+                    {<FaLinkedinIn />}<br></br>
                 </Link>   
+                
                 Copyright © {date()}
             </div>
 

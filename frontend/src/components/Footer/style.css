@@ -21,6 +21,10 @@
         margin-right: 90px;
         margin-top: -100px;
     }
+
+    .github-icon, .linkedin-icon {
+        font-size: xxx-large;
+    }
 }
 
 @media (orientation: portrait) {
