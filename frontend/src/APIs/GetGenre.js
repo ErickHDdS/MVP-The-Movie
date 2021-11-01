@@ -2,22 +2,23 @@ import api from './baseAPI';
 
 async function getGenre() {
     try {
-        const response = await api.get(`/genres`);
+        const response = await api.get("/genres");      
             if(response.status === 200){
-                const genre = response.data;
+                const data = response.data;
                 return ({
-                    data: genre,
+                    data: data,
                     status: true,
                 });
             };
 
             return ({
                 data: response.data,
-                status: false
+                status: false,
             });
 
     } catch(err){
         throw err;
+        console.log("derro");
     }
 };
 

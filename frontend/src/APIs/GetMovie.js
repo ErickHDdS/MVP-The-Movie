@@ -1,6 +1,7 @@
 import api from "./baseAPI";
 
 async function getMovieList(genre) {
+    console.log("GEEN",genre)
     try {
         const response = await api.get(`/movie/list/${genre}`);
             if(response.status === 200){

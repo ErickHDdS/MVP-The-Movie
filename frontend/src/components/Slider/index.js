@@ -4,10 +4,13 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Dots from 'react-carousel-dots';
+import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 
 function Slider() {
     return(
         <section className="main-slider">
+            <FaArrowAltCircleLeft className="left-arrow" onClick={"prevSlide"}/>
+            <FaArrowAltCircleRight className="right-arrow" onClick={"nextSlide"}/>
              <div className={"slides"}>
                 <div className="movie-video" >
                     <iframe
@@ -30,7 +33,7 @@ function Slider() {
                         maxRows={7}
                         disabled
                         defaultValue="Synopsis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. "
-                        style={{ width: 1000 }}
+                        style={{ width: 1030 }}
                         />
                 </div>
 
@@ -76,9 +79,8 @@ function Slider() {
                 </div>
 
                 <div className="carousel-dots" >
-                    <Dots length={10} active={0}/>
+                    <Dots length={10} active={0} onClick="next"/>
                 </div>
-
             </div>  
         </section>
     )

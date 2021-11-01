@@ -5,6 +5,12 @@
         margin-left: 90px;
         margin-right: 90px;
     }
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #C4C4C4;
+    }   
 }
 
 @media (orientation: portrait) {

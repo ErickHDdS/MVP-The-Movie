@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import './style.css';
-import { useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+
 import Cards from '../Cards';
 import Button from '@mui/material/Button';
 import {ReactComponent as AddIcon} from'../../assets/add.svg';
+
+import getGenre from '../../APIs/GetGenre';
+import {getMovieList, getMovieDetail, getMovieSimiliar} from '../../APIs/GetMovie';
+import _default from "@mui/utils/elementTypeAcceptingRef";
+
+
+import Pull from '../../assets/commitjr_old.svg';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -21,38 +28,40 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 function Highlights() {
-    const theme = useTheme();
-    const [personName, setPersonName] = React.useState([]);
-   
+    const [genresList, setGenres] = useState([]);
+    const [genreSelect, setGenreSelect] = React.useState([]);
+    const [moviesList, setMovies] = useState([]);
+    
+    async function handleGetGenre() {
+      const genres = await getGenre();
+      setGenres(genres.data.data.genres);
+    }
+
+    async function handleGetMovieListOfGenre() {
+      console.log("MOVIES",genresList);
+      const movies = await getMovieList(genresList.map((genresList) => (
+          //if(genresList.name === genreSelect) 
+            genresList.id
+      )));
+      //const movies = await getMovieList(genresList.id);
+      console.log("MOVIES OF GENRE",movies);
+      // setMovies(genres.data.data.genres);
+    }
+    
+    useEffect(() => {
+      handleGetGenre();
+    }, []);
+
+    useEffect(() => {
+      handleGetMovieListOfGenre();
+    }, []);
 
     const handleChange = (event) => {
         const {
         target: { value },
         } = event;
-        setPersonName(
+        setGenreSelect(
         // On autofill we get a the stringified value.
         typeof value === 'string' ? value.split(',') : value,
         );
@@ -70,18 +79,13 @@ function Highlights() {
                 <Select
                     labelId="demo-controlled-open-select-label"
                     id="demo-controlled-open-select"
-                    value={personName}
+                    value={genreSelect}
                     onChange={handleChange}
-                    input={<OutlinedInput label="Name" />}
                     MenuProps={MenuProps}
                     >
-                    {names.map((name) => (
-                        <MenuItem
-                        key={name}
-                        value={name}
-                        style={getStyles(name, personName, theme)}
-                        >
-                        {name}
+                    {genresList.map((genresList) => (
+                        <MenuItem value={genresList.id}>
+                          {genresList.name}
                         </MenuItem>
                     ))}
                 </Select>    
@@ -89,8 +93,10 @@ function Highlights() {
             </div>
 
             <div className="cards">
-                <Cards /> <Cards /> <Cards /> <Cards />
-            </div> 
+              <Cards cards={Pull}/> 
+              <Cards card={Pull}/> 
+              <Cards card={Pull}/> 
+            </div>
 
             <div className="button-load-more">
                 <Button variant="outlined" 
