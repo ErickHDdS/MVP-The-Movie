@@ -1,21 +1,38 @@
 @media (orientation: landscape) {
     .cards {
         margin: 0px;
-        display: inline-block;
+        display:inline-block;
         margin-left: 90px;
         margin-right: 90px;
+        vertical-align: middle;
+
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:400;
+        font-size: 18px;
     }
 
     .card {
         padding: 20px;
         border-radius: 10px;
         background-color: #C4C4C4;
+        margin-top: 20px;
     }   
 }
 
 @media (orientation: portrait) {
     .cards {
-        padding: 20px 5px 0 5px;
-        display: inline;
+        text-align:-webkit-center;
+        margin-bottom: 20px;
+
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:400;
+        font-size: 18px;
     }
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #C4C4C4;
+        margin-top: 20px;
+    }  
 }

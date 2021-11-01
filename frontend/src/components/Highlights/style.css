@@ -2,10 +2,10 @@
     .main-highlights {
         text-align: center;
         background-color: #DDDDDD;
-        height: 750px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight:400;
         font-size: 18px;
+        padding-bottom: 20px;
     }
 
     .title {
@@ -37,10 +37,10 @@
     .main-highlights {
         text-align: center;
         background-color: #DDDDDD;
-        height: 650px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight:400;
         font-size: 18px;
+        padding-bottom: 20px;
     }
 
     .title {
@@ -57,7 +57,6 @@
 
     .button-load-more {
         display: inline;
-        padding: 10px 5px 0 5px;
     }
 
 }

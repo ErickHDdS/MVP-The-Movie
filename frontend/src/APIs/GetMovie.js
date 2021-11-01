@@ -1,7 +1,6 @@
 import api from "./baseAPI";
 
-async function getMovieList(genre) {
-    console.log("GEEN",genre)
+async function getMovieListOfGenre(genre) {
     try {
         const response = await api.get(`/movie/list/${genre}`);
             if(response.status === 200){
@@ -64,4 +63,4 @@ async function getMovieSimiliar(movie) {
     }
 };
 
-export {getMovieList, getMovieDetail, getMovieSimiliar};
+export {getMovieListOfGenre, getMovieDetail, getMovieSimiliar};

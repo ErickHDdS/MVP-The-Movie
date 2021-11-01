@@ -11,11 +11,8 @@ import Button from '@mui/material/Button';
 import {ReactComponent as AddIcon} from'../../assets/add.svg';
 
 import getGenre from '../../APIs/GetGenre';
-import {getMovieList, getMovieDetail, getMovieSimiliar} from '../../APIs/GetMovie';
-import _default from "@mui/utils/elementTypeAcceptingRef";
-
-
-import Pull from '../../assets/commitjr_old.svg';
+import {getMovieListOfGenre, getMovieDetail, getMovieSimiliar} from '../../APIs/GetMovie';
+import { AiOutlineMinus } from "react-icons/ai";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -28,45 +25,81 @@ const MenuProps = {
   },
 };
 
+var loading = false;
+let quantCards = 3;
+var limite;
+
 function Highlights() {
     const [genresList, setGenres] = useState([]);
-    const [genreSelect, setGenreSelect] = React.useState([]);
-    const [moviesList, setMovies] = useState([]);
+    const [genreSelect, setGenreSelect] = useState(28);
+    const [moviesListOfGenre, setMoviesOfGenre] = useState([]);
+    const [moviesInfos, setMoviesInfos] = useState([]);
+    
     
     async function handleGetGenre() {
       const genres = await getGenre();
       setGenres(genres.data.data.genres);
     }
 
-    async function handleGetMovieListOfGenre() {
-      console.log("MOVIES",genresList);
-      const movies = await getMovieList(genresList.map((genresList) => (
-          //if(genresList.name === genreSelect) 
-            genresList.id
-      )));
-      //const movies = await getMovieList(genresList.id);
-      console.log("MOVIES OF GENRE",movies);
-      // setMovies(genres.data.data.genres);
+    async function handleGetMovieList() {
+      const moviesOfGenre = await getMovieListOfGenre(genreSelect);
+      setMoviesOfGenre(moviesOfGenre.data.data.results);
+      handleSetCards();
     }
-    
-    useEffect(() => {
-      handleGetGenre();
-    }, []);
+
+    function handleSetCards() {
+      if(quantCards == 3) {
+        limite = 17
+      }
+      else 
+        limite = 14;
+      
+      var movieInfo = [];
+      var initial = Math.floor(Math.random() * limite); 
+      for(var i = 0; i < quantCards; i++, initial++) {
+        if(moviesListOfGenre.length > 0)
+          movieInfo.push(moviesListOfGenre.at(initial));
+      }
+      setMoviesInfos(movieInfo);
+    }    
 
     useEffect(() => {
-      handleGetMovieListOfGenre();
+      handleGetGenre();
+      handleGetMovieList();
     }, []);
 
     const handleChange = (event) => {
         const {
-        target: { value },
-        } = event;
-        setGenreSelect(
-        // On autofill we get a the stringified value.
-        typeof value === 'string' ? value.split(',') : value,
+          target: { value },
+          } = event;
+          setGenreSelect(
+          // On autofill we get a the stringified value.
+          typeof value === 'string' ? value.split(',') : value,
         );
+        handleGetMovieList();
     };
 
+    function check() {
+      if(loading==false) {
+        handleGetMovieList();
+      }
+      loading = true;
+    }
+
+    function control() {
+      if(quantCards == 3) {
+        quantCards = 6;
+      } 
+      else {
+        quantCards = 3;
+      }
+      handleGetMovieList();
+    }
+    
+    window.onload = function() {
+      check();
+    };
+  
     return (
        <section className="main-highlights">
            <h1 className="title">
@@ -92,17 +125,22 @@ function Highlights() {
             </FormControl>
             </div>
 
-            <div className="cards">
-              <Cards cards={Pull}/> 
-              <Cards card={Pull}/> 
-              <Cards card={Pull}/> 
-            </div>
+              {moviesInfos.length > 0 ? (
+                <div className="cards">
+                {moviesInfos.map((movie) => (
+                  <Cards movies={movie}/>
+                  ))}
+                </div>
+              ) : (<div></div>)}
 
             <div className="button-load-more">
                 <Button variant="outlined" 
                     color="inherit" 
                     fontSize="18px"
-                    startIcon={<AddIcon />}>More movies</Button>
+                    onClick={control}
+                    
+                    startIcon={quantCards == 3 ? (<AddIcon /> ) : (<AiOutlineMinus />) }>More movies</Button>
+                  
             </div>
        </section>
     );
