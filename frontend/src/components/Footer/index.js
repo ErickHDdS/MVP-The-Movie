@@ -17,14 +17,14 @@ function Footer() {
             <div className="footer-icon-developer">
                 Developed by 
                 <Link 
-                    href="https://www.linkedin.com/in/erickhenriquedds/" underline="hover"> Erick Henrique
+                    href="https://www.linkedin.com/in/erickhenriquedds/" underline="hover" color="#515151"> Erick Henrique
                 </Link><br></br><br></br>
 
-                <Link href="https://github.com/ErickHDdS" className="github-icon" > 
+                <Link href="https://github.com/ErickHDdS" className="github-icon" color="#515151"> 
                     {<GoMarkGithub />} 
                 </Link> <tab></tab>
 
-                <Link href="https://www.linkedin.com/in/erickhenriquedds/" className="linkedin-icon"> 
+                <Link href="https://www.linkedin.com/in/erickhenriquedds/" className="linkedin-icon" color="#515151"> 
                     {<FaLinkedinIn />}<br></br>
                 </Link>   
                 

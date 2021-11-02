@@ -6,7 +6,7 @@
     text-align: center;
     background-color: #A4A4A4;
     font-size: 18px;
-    color: #E2E8EB;
+    color: #515151;
 }
 
 @media (orientation: landscape) {
@@ -21,10 +21,6 @@
         margin-right: 90px;
         margin-top: -100px;
     }
-
-    .github-icon, .linkedin-icon {
-        font-size: xxx-large;
-    }
 }
 
 @media (orientation: portrait) {
@@ -37,10 +33,10 @@
     }
 }
 
-.footer-icon-developer {
-    align-items: center;
+.github-icon, .linkedin-icon {
+    font-size: xxx-large;
 }
 
-:any-link {
-    color: #E2E8EB;
+.footer-icon-developer {
+    align-items: center;
 }

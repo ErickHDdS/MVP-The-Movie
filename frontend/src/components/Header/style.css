@@ -22,7 +22,7 @@
 
     .search {
         border-radius: 6px;
-        border: 1px solid #515151;
+        border: 1px solid #E2E8EB;
         width: auto;
         display: flex;
     }
@@ -36,7 +36,7 @@
         display: inline !important;
         border: none;
         background-color: #A4A4A4;
-        color: #515151;
+        color: #E2E8EB;
     }
 
     .search-input:focus {
@@ -60,7 +60,7 @@
 
     .search {
         border-radius: 6px;
-        border: 1px solid #515151;
+        border: 1px solid #E2E8EB;
         width: auto;
         display: flex;
     }
@@ -74,7 +74,7 @@
         display: inline !important;
         border: none;
         background-color: #A4A4A4;
-        color: #515151;
+        color: #E2E8EB;
         width: 70px;
     }
 
