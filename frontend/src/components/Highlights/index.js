@@ -10,7 +10,7 @@ import Cards from '../Cards';
 import Button from '@mui/material/Button';
 
 import getGenre from '../../APIs/GetGenre';
-import {getMovieListOfGenre, getMovieDetail, getMovieSimiliar} from '../../APIs/GetMovie';
+import { getMovieListOfGenre, getMovieDetail } from '../../APIs/GetMovie';
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const ITEM_HEIGHT = 48;
@@ -24,125 +24,121 @@ const MenuProps = {
   },
 };
 
-var loading = false;
 let quantCards = 3;
-var limite;
+let limite = 19;
 
 function Highlights() {
-    const [genresList, setGenres] = useState([]);
-    const [genreSelect, setGenreSelect] = useState(28);
-    const [moviesListOfGenre, setMoviesOfGenre] = useState([]);
-    const [moviesInfos, setMoviesInfos] = useState([]);
-    
-    
-    async function handleGetGenre() {
-      const genres = await getGenre();
-      setGenres(genres.data.data.genres);
-    }
+  const [genresList, setGenres] = useState([]);
+  const [moviesListOfGenre, setMoviesOfGenre] = useState([]);
+  const [moviesInfos, setMoviesInfos] = useState([]);
+  const [genreSelect, setgenreSelect] = useState(28);
 
-    async function handleGetMovieList() {
-      const moviesOfGenre = await getMovieListOfGenre(genreSelect);
-      setMoviesOfGenre(moviesOfGenre.data.data.results);
-      handleSetCards();
-    }
+  async function handleGetGenre() {
+    const genres = await getGenre();
+    setGenres(genres.data.data.genres);
+  }
 
-    function handleSetCards() {
-      if(quantCards == 3) {
-        limite = 17
-      }
-      else 
-        limite = 14;
-      
-      var movieInfo = [];
-      var initial = Math.floor(Math.random() * limite); 
-      for(var i = 0; i < quantCards; i++, initial++) {
-        if(moviesListOfGenre.length > 0)
-          movieInfo.push(moviesListOfGenre.at(initial));
+  async function handleGetMovieList() {
+    const moviesOfGenre = await getMovieListOfGenre(genreSelect);
+    setMoviesOfGenre(moviesOfGenre.data.data.results);
+  }
+
+  async function handleGetMovieDetail() {
+    let data;
+    let movieInfo = [];
+    let initial = Math.floor(Math.random() * limite);
+
+    if (moviesListOfGenre.length >= quantCards) {
+      for (var i = 0; i < quantCards; i++, initial++) {
+        data = await getMovieDetail(moviesListOfGenre.at(initial).id);
+        movieInfo.push(data);
       }
       setMoviesInfos(movieInfo);
-    }    
-
-    useEffect(() => {
-      handleGetGenre();
-      handleGetMovieList();
-    }, []);
-
-    const handleChange = (event) => {
-        const {
-          target: { value },
-          } = event;
-          setGenreSelect(
-          // On autofill we get a the stringified value.
-          typeof value === 'string' ? value.split(',') : value,
-        );
-        handleGetMovieList();
-    };
-
-    function check() {
-      if(loading==false) {
-        handleGetMovieList();
-      }
-      loading = true;
     }
+  }
 
-    function control() {
-      if(quantCards == 3) {
-        quantCards = 6;
-      } 
-      else {
-        quantCards = 3;
-      }
-      handleGetMovieList();
+  useEffect(() => {
+    handleGetGenre();
+  }, []);
+
+  useEffect(() => {
+    handleGetMovieList();
+  }, [genreSelect]);
+
+  useEffect(() => {
+    handleGetMovieDetail();
+  }, [moviesListOfGenre]);
+
+  const handleChange = (event) => {
+    setgenreSelect(event.target.value);
+  };
+
+  function control() {
+    if(limite > 4) {
+      quantCards = quantCards+3;
+      limite = limite-3;
     }
-    
-    window.onload = function() {
-      check();
-    };
-  
-    return (
-       <section className="main-highlights">
-           <h1 className="title">
-                Highlights
-            </h1>
+    else {
+      quantCards = quantCards-3;
+      limite = limite+3
+    }
+    handleGetMovieDetail();
+  }
 
-            <div className="button-genres-movie" >
-            <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-controlled-open-select-label">Genres</InputLabel>
-                <Select
-                    labelId="demo-controlled-open-select-label"
-                    id="demo-controlled-open-select"
-                    value={genreSelect}
-                    onChange={handleChange}
-                    MenuProps={MenuProps}
-                    >
-                    {genresList.map((genresList) => (
-                        <MenuItem value={genresList.id}>
-                          {genresList.name}
-                        </MenuItem>
-                    ))}
-                </Select>    
-            </FormControl>
-            </div>
+  return (
+    <section className="main-highlights">
+      <h1 className="title">
+        Highlights
+      </h1>
 
-              {moviesInfos.length > 0 ? (
-                <div className="cards">
-                {moviesInfos.map((movie) => (
-                  <Cards movies={movie}/>
-                  ))}
-                </div>
-              ) : (<div></div>)}
+      <div className="button-genres-movie" >
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="demo-controlled-open-select-label">Genres</InputLabel>
+          <Select
+            labelId="demo-controlled-open-select-label"
+            id="demo-controlled-open-select"
+            value={genreSelect}
+            onChange={handleChange}
+            MenuProps={MenuProps}
+          >
+            {genresList.map((genresList) => (
+              <MenuItem value={genresList.id}>
+                {genresList.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
 
-            <div className="button-load-more">
-                <Button variant="outlined" 
-                    color="inherit" 
-                    fontSize="18px"
-                    onClick={control}
-                    
-                    startIcon={quantCards == 3 ? (<AiOutlinePlus /> ) : (<AiOutlineMinus />) }>More movies</Button>
-                  
-            </div>
-       </section>
-    );
+      {moviesInfos.length > 0 && (
+        <div className="cards">
+          {moviesInfos.map((movie) => (
+            <Cards movies={movie} />
+          ))}
+        </div>
+      )}
+
+      {limite > 4 ? (<div className="button-load-more">
+        <Button variant="outlined"
+          color="inherit"
+          fontSize="18px"
+          onClick={control}
+          
+          startIcon={<AiOutlinePlus />}>More movies</Button>
+
+      </div>) : (
+      <div className="button-load-more">
+        <Button variant="outlined"
+          color="inherit"
+          fontSize="18px"
+          onClick={control}
+          
+          startIcon={<AiOutlineMinus  />}>Less movies</Button>
+
+      </div>
+      )}            
+    </section>
+  );
 }
 
 export default Highlights;

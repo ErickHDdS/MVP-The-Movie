@@ -48,6 +48,7 @@
         font-size: 18px;
         text-decoration-line: underline;
         color: #515151;
+        margin-bottom: 20px;
     }
 
     .button-genres-movie {
@@ -58,5 +59,4 @@
     .button-load-more {
         display: inline;
     }
-
 }
