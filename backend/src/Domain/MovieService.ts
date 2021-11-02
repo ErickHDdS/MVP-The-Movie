@@ -1,4 +1,4 @@
-import { GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList } from '../Repository/Repository';
+import { GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList, GetMoviesRealiseList, GetVideoMovie } from '../Repository/Repository';
 
 class MovieService {
     // movie genre list
@@ -22,6 +22,24 @@ class MovieService {
     // movie similiar list
     async getMovieSimiliarList(movieId:number) {
         const repositoryResponse = await GetSimiliarMoviesList(movieId);
+        if(repositoryResponse.status){
+            return repositoryResponse;
+        };
+        return {message: "Failed to make the request"};
+    };
+
+    // movie realise list
+    async getMovieRealiseList() {
+        const repositoryResponse = await GetMoviesRealiseList();
+        if(repositoryResponse.status) {
+            return repositoryResponse;
+        };
+        return {message: "Failed to make the request"};
+    };
+
+    // movie video
+    async getMovieVideo(movieId:number) {
+        const repositoryResponse = await GetVideoMovie(movieId);
         if(repositoryResponse.status){
             return repositoryResponse;
         };

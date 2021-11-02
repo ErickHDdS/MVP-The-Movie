@@ -2,80 +2,95 @@ import api from '../config/axios';
 import api_key from '../config/env';
 
 async function GetGenresList() {
-    try {
-        const response = await api.get(`/3/genre/movie/list?api_key=${api_key}&language=en-US`);
-        if(response.status >= 200 && response.status < 300) {
-            const genreList = response.data;
-            return {
-                status: true,
-                data: genreList,
-            };
-        };
-
+    const response = await api.get(`/3/genre/movie/list?api_key=${api_key}&language=en-US`);
+    if (response.status >= 200 && response.status < 300) {
+        const genreList = response.data;
         return {
-            status: false,
-            data: "Failed the request"
+            status: true,
+            data: genreList,
         };
-    } catch(err) {
-        throw (err);
+    };
+
+    return {
+        status: false,
+        data: "Failed the request"
     };
 };
 
-async function GetMoviesGenre(genres:string) {
-    try {
-        const response = await api.get(`/3/discover/movie?api_key=${api_key}&language=en-US&year=2021&with_genres=${genres}`);
-        if(response.status >= 200 && response.status < 300) {
-            const genreMovieList = response.data;
-            return {
-                status: true,
-                data: genreMovieList,
-            };
-        };
+async function GetMoviesGenre(genres: string) {
+    const response = await api.get(`/3/discover/movie?api_key=${api_key}&language=en-US&year=2021&with_genres=${genres}`);
+    if (response.status >= 200 && response.status < 300) {
+        const genreMovieList = response.data;
         return {
-            status: false,
-            data: "Failed the request"
+            status: true,
+            data: genreMovieList,
         };
-    } catch(err) {
-        throw (err);
+    };
+    return {
+        status: false,
+        data: "Failed the request"
     };
 };
 
-async function GetMoviesDetails(movieId:number) {
-    try {
-        const response = await api.get(`/3/movie/${movieId}?api_key=${api_key}&language=en-US`);
-        if(response.status >= 200 && response.status < 300) {
-            const movieDetails = response.data;
-            return {
-                status: true,
-                data: movieDetails,
-            };
-        };
+async function GetMoviesDetails(movieId: number) {
+    const response = await api.get(`/3/movie/${movieId}?api_key=${api_key}&language=en-US`);
+    if (response.status >= 200 && response.status < 300) {
+        const movieDetails = response.data;
         return {
-            status: false,
-            data: "Failed the request"
+            status: true,
+            data: movieDetails,
         };
-    } catch(err) {
-        throw (err);
+    };
+    return {
+        status: false,
+        data: "Failed the request"
     };
 };
 
-async function GetSimiliarMoviesList(movieId:number) {
-    try {
-        const response = await api.get(`/3/movie/${movieId}/similar?api_key=${api_key}&language=en-US&page=1`);
-        if(response.status >= 200 && response.status < 300) {
-            const movieSimiliar = response.data;
-            return {
-                status: true,
-                data: movieSimiliar,
-            };
-        };
+async function GetSimiliarMoviesList(movieId: number) {
+    const response = await api.get(`/3/movie/${movieId}/similar?api_key=${api_key}&language=en-US&page=1`);
+    if (response.status >= 200 && response.status < 300) {
+        const movieSimiliar = response.data;
         return {
-            status: false,
-            data: "Failed the request"
+            status: true,
+            data: movieSimiliar,
         };
-    } catch(err) {
-        throw (err);
+    };
+    return {
+        status: false,
+        data: "Failed the request"
     };
 };
 
-export { GetGenresList, GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList };
+async function GetMoviesRealiseList() {
+    const response = await api.get(`/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`);
+    if (response.status >= 200 && response.status < 300) {
+        const moviesRealise = response.data;
+        return {
+            status: true,
+            data: moviesRealise,
+        };
+    };
+
+    return {
+        status: false,
+        data: "Failed the request"
+    };
+};
+
+async function GetVideoMovie(movieId: number) {
+    const response = await api.get(`/3/movie/${movieId}/videos?api_key=${api_key}&language=en-US`);
+    if (response.status >= 200 && response.status < 300) {
+        const movieVideo = response.data;
+        return {
+            status: true,
+            data: movieVideo,
+        };
+    };
+    return {
+        status: false,
+        data: "Failed the request"
+    };
+};
+
+export { GetGenresList, GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList, GetMoviesRealiseList, GetVideoMovie};

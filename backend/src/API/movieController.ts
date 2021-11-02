@@ -15,7 +15,7 @@ class MovieController {
 
             return response.status(500).send({ err: 'Err' });
         } catch(err) {
-            throw err;
+            console.error({err});
         };
     };
 
@@ -32,7 +32,7 @@ class MovieController {
 
             return response.status(500).send({ err: 'Err' });
         } catch(err) {
-            throw err;
+            console.error({err});
         };
     };
     
@@ -49,9 +49,43 @@ class MovieController {
 
             return response.status(500).send({ err: 'Err' });
         } catch(err) {
-            throw err;
+            console.error({err});
         };
     };
+
+    // movie realise list
+    async getMoviesRealiseList (request: Request, response: Response) {
+        try {
+            const moviesRealiseData = new MovieService();
+            const moviesRealiseList = await moviesRealiseData.getMovieRealiseList();
+
+            if(moviesRealiseList != null) {
+                return response.send(moviesRealiseList);
+            };
+
+            return response.status(500).send({ err: 'Err'});
+        } catch (err) {
+            console.log({err});
+        };
+    };
+
+    // movie video
+    async getMovieVideo (request: Request, response:Response) {
+        try {
+            const movieVideoData = new MovieService();
+            const movie = request.params.movie;
+            const movieVideo = await movieVideoData.getMovieVideo(parseInt(movie));
+
+            if(Number.isInteger(parseInt(movie)) && movieVideo != null){
+                return response.send(movieVideo)
+            };
+
+            return response.status(500).send({ err: 'Err' });
+        } catch(err) {
+            console.error({err});
+        };
+    };
+
 };
 
 export default MovieController;
