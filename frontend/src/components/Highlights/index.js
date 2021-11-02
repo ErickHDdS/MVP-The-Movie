@@ -48,7 +48,13 @@ function Highlights() {
     let movieInfo = [];
     let initial = Math.floor(Math.random() * limite);
 
-    if (moviesListOfGenre.length >= quantCards) {
+    //console.log("mOVIES LEGNHUT",moviesListOfGenre.length)
+    if (moviesListOfGenre.length > 0 && quantCards === 3 
+        || moviesListOfGenre.length > 2 && quantCards === 6
+        || moviesListOfGenre.length > 5 && quantCards === 9
+        || moviesListOfGenre.length > 8 && quantCards === 12
+        || moviesListOfGenre.length > 11 && quantCards === 15
+        || moviesListOfGenre.length > 14 && quantCards === 18) {
       for (var i = 0; i < quantCards; i++, initial++) {
         data = await getMovieDetail(moviesListOfGenre.at(initial).id);
         movieInfo.push(data);
@@ -118,7 +124,7 @@ function Highlights() {
         </div>
       )}
 
-      {limite > 4 ? (<div className="button-load-more">
+      {limite > 4 ? (<div className="button-load-more">        
         <Button variant="outlined"
           color="inherit"
           fontSize="18px"

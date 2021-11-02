@@ -3,7 +3,6 @@ import Link from '@mui/material/Link';
 import './style.css';
 
 function Cards(movie) {
-    console.log("MOVIE CARD",movie) 
     return (      
         <div className="cards">
             <Card style={{ width: '17rem' }}>
