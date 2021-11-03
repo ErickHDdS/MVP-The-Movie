@@ -48,7 +48,6 @@ function Highlights() {
     let movieInfo = [];
     let initial = Math.floor(Math.random() * limite);
 
-    //console.log("mOVIES LEGNHUT",moviesListOfGenre.length)
     if (moviesListOfGenre.length > 0 && quantCards === 3 
         || moviesListOfGenre.length > 2 && quantCards === 6
         || moviesListOfGenre.length > 5 && quantCards === 9
@@ -103,6 +102,7 @@ function Highlights() {
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
+            size="24px"
             value={genreSelect}
             onChange={handleChange}
             MenuProps={MenuProps}
@@ -127,18 +127,16 @@ function Highlights() {
       {limite > 4 ? (<div className="button-load-more">        
         <Button variant="outlined"
           color="inherit"
-          fontSize="18px"
           onClick={control}
-          
+          size="24px"
           startIcon={<AiOutlinePlus />}>More movies</Button>
 
       </div>) : (
       <div className="button-load-more">
         <Button variant="outlined"
           color="inherit"
-          fontSize="18px"
           onClick={control}
-          
+          size="24px"
           startIcon={<AiOutlineMinus  />}>Less movies</Button>
 
       </div>

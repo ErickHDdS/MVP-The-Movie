@@ -12,7 +12,7 @@
 
 @media (orientation: landscape) {
     .main-header {
-        padding: 20px 80px 35px 40px;
+        padding: 20px 90px 35px 90px;
     }
 
     .menu-links {
@@ -32,7 +32,7 @@
     }
 
     .search-input {
-        font-size: 18px;
+        font-size: 24px;
         display: inline !important;
         border: none;
         background-color: #A4A4A4;
