@@ -42,6 +42,22 @@
     .search-input:focus {
         outline: none;
     }
+
+    .MuiButton-root {        
+        min-width: 0;
+    }
+
+    .search-title {
+        background-color: #C4C4C4;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        font-size: 35px;
+        text-decoration-line: underline;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:700;
+        color: #515151;
+    }
 }
 
 @media (orientation: portrait) {

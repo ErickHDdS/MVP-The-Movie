@@ -9,26 +9,20 @@ import './style.css';
 let quantSlides = 5;
 let limite = 15;
 
-function SliderMovie() {
-
-    const [moviesRealiseList, setMoviesRealiseList] = useState([]);
+function SliderMovie(moviesInput) {
+    console.log("inf",moviesInput)
     const [moviesInfos, setMoviesInfos] = useState([]);
     const [moviesVideos, setMoviesVideos] = useState([]);
     const [moviesInfosComplete, setMoviesInfosComplete] = useState([]);
-
-    async function handleGetRealiseList() {
-        const movies = await getMoviesRealiseList();
-        setMoviesRealiseList(movies.data.data.results);
-    }
 
     async function handleGetMovieDetail() {
         let data;
         let movieInfo = [];
         let initial = Math.floor(Math.random() * limite);
 
-        if (moviesRealiseList.length > 0) {
+        if (moviesInput.movies.length > 0) {
             for (var i = 0; i < quantSlides; i++, initial++) {
-                data = await getMovieDetail(moviesRealiseList.at(initial).id);
+                data = await getMovieDetail(moviesInput.movies.at(initial).id);
                 movieInfo.push(data);
             }
             setMoviesInfos(movieInfo);
@@ -36,11 +30,11 @@ function SliderMovie() {
     }
 
     async function handleGetMovieVideo() {
-        let data;
+        let dataMovie;
         let movieVideo = [];
             for (var i = 0; i < moviesInfos.length; i++) {
-                data = await getMovieVideo(moviesInfos.at(i).data.data.id);
-                movieVideo.push(data.data.data.results.at(0).key);
+                dataMovie = await getMovieVideo(moviesInfos.at(i).data.data.id);
+                movieVideo.push(dataMovie.data.data.results.at(0).key);
             }
             setMoviesVideos(movieVideo);
     }
@@ -60,12 +54,8 @@ function SliderMovie() {
     }
 
     useEffect(() => {
-        handleGetRealiseList();
-    }, []);
-
-    useEffect(() => {
         handleGetMovieDetail();
-    }, [moviesRealiseList]);
+    }, [moviesInput]);
 
     useEffect(() => {
         handleGetMovieVideo();
