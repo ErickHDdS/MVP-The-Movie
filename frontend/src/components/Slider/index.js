@@ -1,89 +1,154 @@
-import React from 'react';
-import './style.css';
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-import Dots from 'react-carousel-dots';
-import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
+import Stack from '@mui/material/Stack'
+import { getMoviesRealiseList, getMovieDetail, getMovieVideo } from '../../APIs/GetMovie';
+import './style.css';
 
-function Slider() {
+let quantSlides = 5;
+let limite = 15;
+
+function SliderMovie() {
+
+    const [moviesRealiseList, setMoviesRealiseList] = useState([]);
+    const [moviesInfos, setMoviesInfos] = useState([]);
+    const [moviesVideos, setMoviesVideos] = useState([]);
+    const [moviesInfosComplete, setMoviesInfosComplete] = useState([]);
+
+    async function handleGetRealiseList() {
+        const movies = await getMoviesRealiseList();
+        setMoviesRealiseList(movies.data.data.results);
+    }
+
+    async function handleGetMovieDetail() {
+        let data;
+        let movieInfo = [];
+        let initial = Math.floor(Math.random() * limite);
+
+        if (moviesRealiseList.length > 0) {
+            for (var i = 0; i < quantSlides; i++, initial++) {
+                data = await getMovieDetail(moviesRealiseList.at(initial).id);
+                movieInfo.push(data);
+            }
+            setMoviesInfos(movieInfo);
+        }
+    }
+
+    async function handleGetMovieVideo() {
+        let data;
+        let movieVideo = [];
+            for (var i = 0; i < moviesInfos.length; i++) {
+                data = await getMovieVideo(moviesInfos.at(i).data.data.id);
+                movieVideo.push(data.data.data.results.at(0).key);
+            }
+            setMoviesVideos(movieVideo);
+    }
+
+    function updateInfos() {
+        let movie = [];
+        var data;
+
+        if(moviesInfos.length > 0) {
+            movie = moviesInfos;
+            for(var i=0; i<quantSlides; i++) {
+                data = moviesVideos.at(i);
+                movie.at(i).video = data
+            }
+        }
+        console.log("COMPLETE",movie)
+        setMoviesInfosComplete(movie)
+    }
+
+    useEffect(() => {
+        handleGetRealiseList();
+    }, []);
+
+    useEffect(() => {
+        handleGetMovieDetail();
+    }, [moviesRealiseList]);
+
+    useEffect(() => {
+        handleGetMovieVideo();
+    }, [moviesInfos]);
+
+    useEffect(() => {
+        updateInfos();
+    }, [moviesVideos]);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
     return(
-        <section className="main-slider">
-            <FaArrowAltCircleLeft className="left-arrow" onClick={"prevSlide"}/>
-            <FaArrowAltCircleRight className="right-arrow" onClick={"nextSlide"}/>
-             <div className={"slides"}>
-                <div className="movie-video" >
-                    <iframe
-                        width="616"
-                        height="384"
-                        src={`https://www.youtube.com/embed/VGrw0MN-03w`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title="Embedded youtube"
-                    />
-                </div>
+        <Slider {...settings}>
+            {console.log("TESTE", moviesInfosComplete)}
+            {moviesInfosComplete.map((movie) => (
+                <section className="main-slider">
+                    <div className="movie" >
+                            <iframe className="movie-video"
+                                width="800"
+                                height="500"
+                                src={`https://www.youtube.com/embed/${movie.video}`}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                title="Embedded youtube"
+                            />
 
-                < div className="movie-title" >
-                    <h1>{"Nome do Filme"}</h1>
-                </div>
+                        <div className="movie-infos" >
+                            <div className="movie-title" >
+                                <h1>{movie.data.data.title}</h1>
+                            </div>
 
-                < div className="movie-synopsis" >
-                    <TextareaAutosize className="textarea"
-                        maxRows={7}
-                        disabled
-                        defaultValue="Synopsis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut massa nibh. Pellentesque est tellus, mattis varius metus quis, pellentesque euismod risus. Nullam lacinia ligula sit amet tellus eleifend, eget tincidunt neque fringilla. Mauris sem orci, dictum id ligula in, pellentesque elementum dui. Nunc vestibulum sem nec nisi ultrices aliquet. "
-                        style={{ width: 1030 }}
-                        />
-                </div>
+                            <div className="movie-detail" >
+                                <TextareaAutosize
+                                    maxRows={7}
+                                    disabled
+                                    defaultValue={"Synopsis: "+movie.data.data.overview}
+                                    style={{ width: 850 }}
+                                    />
+                                <p></p><strong>
+                                    Original Title: 
+                                </strong> 
+                                    {" "+movie.data.data.title} 
 
-                < div className="movie-original-tile" >
-                    <strong>
-                        Original Title:
-                    </strong> 
-                        {" Title"} 
-                </div>
+                                <p></p><strong>
+                                    Genre:
+                                </strong> 
+                                    {movie.data.data.genres.map((genresList) => 
+                                        " "+genresList.name + " |"
+                                    )}
 
-                < div className="movie-genres" >
-                    <strong>
-                        Genre:
-                    </strong> 
-                        {" Genre 1 | Genre 2"} 
-                </div>
-
-                < div className="movie-premiere" >
-                    <strong>
-                        Premiere:
-                    </strong> 
-                        {" DD/MM/AAAA"} 
-                </div>
-
-                < div className="movie-adult-question" >
-                    <strong>
-                        Adult content:
-                    </strong> 
-                        {" Yes/No"} 
-                </div>
-
-                < div className="movie-time" >
-                    <strong>
-                        Duration:
-                    </strong> 
-                        {" {X}h {YY}m"} 
-                </div>
-
-                <div className="avaliation" >
-                    <Stack spacing={1}>
-                    <Rating name="stars" value={3} readOnly />
-                    </Stack>
-                </div>
-
-                <div className="carousel-dots" >
-                    <Dots length={10} active={0} onClick="next"/>
-                </div>
-            </div>  
-        </section>
-    )
+                                <p></p><strong>
+                                    Premiere:
+                                </strong> 
+                                    {" "+movie.data.data.release_date}
+                                
+                                <p></p><strong>
+                                    Adult content:
+                                </strong> 
+                                    {movie.data.data.adult == false ? (" False") : (" True")}
+                                <strong className="movie-duration">
+                                    Duration:
+                                </strong> 
+                                {" "+`${parseInt(movie.data.data.runtime / 60)}h ${movie.data.data.runtime % 60}min`}
+                                
+                                <p></p><strong className="movie-avaliation">
+                                    <Stack spacing={3}>
+                                    <Rating name="stars" value={movie.data.data.vote_average / 2} precision={0.5} readOnly />
+                                    </Stack>
+                                </strong> 
+                            </div>
+                        </div>
+                    </div>  
+                </section>
+            ))}
+        </Slider> 
+    );
 }
-
- export default Slider;
+export default SliderMovie;

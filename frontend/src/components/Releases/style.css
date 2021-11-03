@@ -1,7 +1,7 @@
 @media (orientation: landscape) {
     .main-realeases {
         background-color: #C4C4C4;
-        height: 600px;
+        height: 670px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight:400;
         font-size: 18px;
@@ -19,7 +19,7 @@
 @media (orientation: portrait) {
     .main-realeases {
         background-color: #C4C4C4;
-        height: 900px;
+        height: 1050px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight:400;
         font-size: 18px;

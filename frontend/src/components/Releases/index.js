@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Slider from '../Slider';
+import SliderMovie from '../Slider';
 import './style.css';
 
-function Realeases() {
+function Realeases() {   
     return (
         <section className="main-realeases">
             <h1 className="title">
@@ -10,7 +10,7 @@ function Realeases() {
             </h1>
 
             <div className="slider">
-                 <Slider /> 
+                 <SliderMovie /> 
             </div> 
 
         </section>
