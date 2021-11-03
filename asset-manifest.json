@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6557e47c.chunk.css",
+    "main.js": "/static/js/main.f3605c2f.chunk.js",
+    "main.js.map": "/static/js/main.f3605c2f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1d6d3fc0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1d6d3fc0.js.map",
+    "static/js/2.76ffdc8d.chunk.js": "/static/js/2.76ffdc8d.chunk.js",
+    "static/js/2.76ffdc8d.chunk.js.map": "/static/js/2.76ffdc8d.chunk.js.map",
+    "static/js/3.21caff24.chunk.js": "/static/js/3.21caff24.chunk.js",
+    "static/js/3.21caff24.chunk.js.map": "/static/js/3.21caff24.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6557e47c.chunk.css.map": "/static/css/main.6557e47c.chunk.css.map",
+    "static/js/2.76ffdc8d.chunk.js.LICENSE.txt": "/static/js/2.76ffdc8d.chunk.js.LICENSE.txt",
+    "static/media/commitjr_new_cinza.083d958b.svg": "/static/media/commitjr_new_cinza.083d958b.svg",
+    "static/media/erick_logo.aa19b0ec.svg": "/static/media/erick_logo.aa19b0ec.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d6d3fc0.js",
+    "static/js/2.76ffdc8d.chunk.js",
+    "static/css/main.6557e47c.chunk.css",
+    "static/js/main.f3605c2f.chunk.js"
+  ]
+}
