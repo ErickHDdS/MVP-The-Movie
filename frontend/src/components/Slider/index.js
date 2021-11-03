@@ -56,7 +56,6 @@ function SliderMovie() {
                 movie.at(i).video = data
             }
         }
-        console.log("COMPLETE",movie)
         setMoviesInfosComplete(movie)
     }
 
@@ -86,7 +85,6 @@ function SliderMovie() {
 
     return(
         <Slider {...settings}>
-            {console.log("TESTE", moviesInfosComplete)}
             {moviesInfosComplete.map((movie) => (
                 <section className="main-slider">
                     <div className="movie" >

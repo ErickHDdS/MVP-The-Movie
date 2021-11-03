@@ -3,7 +3,13 @@ import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
 import { FaSearch } from "react-icons/fa";
+import { Button } from '@mui/material';
 
+var capturando = "";
+function capturar() {
+    capturando = document.getElementById('valor').value;
+    console.log(capturando)
+}
 function Header() {
     return (
        <header className="main-header">
@@ -15,10 +21,10 @@ function Header() {
                 Releases | Highlights 
             </div>
 
-            <div className="search">
-                <FaSearch color="#E2E8EB" className = "searchIcon"/>
-                <input type="text" color="#E2E8EB" placeholder="Movie" className="search-input"></input>
-            </div>
+            <form className="search">
+                <Button> <FaSearch color="#E2E8EB" className = "searchIcon" onClick={capturar}/> </Button>
+                <input type="text" color="#E2E8EB" placeholder= "Movie | Genre" className="search-input" id="valor"></input>
+            </form>
        </header>
     );
 }

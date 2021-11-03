@@ -25,7 +25,7 @@ const MenuProps = {
 };
 
 let quantCards = 3;
-let limite = 19;
+let limite = 18;
 
 function Highlights() {
   const [genresList, setGenres] = useState([]);
@@ -48,12 +48,12 @@ function Highlights() {
     let movieInfo = [];
     let initial = Math.floor(Math.random() * limite);
 
-    if (moviesListOfGenre.length > 0 && quantCards === 3 
-        || moviesListOfGenre.length > 2 && quantCards === 6
-        || moviesListOfGenre.length > 5 && quantCards === 9
-        || moviesListOfGenre.length > 8 && quantCards === 12
-        || moviesListOfGenre.length > 11 && quantCards === 15
-        || moviesListOfGenre.length > 14 && quantCards === 18) {
+    if ((moviesListOfGenre.length > 1 && quantCards === 3) 
+        || (moviesListOfGenre.length > 4 && quantCards === 6)
+        || (moviesListOfGenre.length > 7 && quantCards === 9)
+        || (moviesListOfGenre.length > 10 && quantCards === 12)
+        || (moviesListOfGenre.length > 13 && quantCards === 15)
+        || (moviesListOfGenre.length > 16 && quantCards === 18)) {
       for (var i = 0; i < quantCards; i++, initial++) {
         data = await getMovieDetail(moviesListOfGenre.at(initial).id);
         movieInfo.push(data);
