@@ -89,8 +89,8 @@ function SliderMovie() {
                 <section className="main-slider">
                     <div className="movie" >
                             <iframe className="movie-video"
-                                width="800"
-                                height="500"
+                                width="900"
+                                height="562"
                                 src={`https://www.youtube.com/embed/${movie.video}`}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -108,7 +108,7 @@ function SliderMovie() {
                                     maxRows={7}
                                     disabled
                                     defaultValue={"Synopsis: "+movie.data.data.overview}
-                                    style={{ width: 850 }}
+                                    style={{ width: 750 }}
                                     />
                                 <p></p><strong>
                                     Original Title: 

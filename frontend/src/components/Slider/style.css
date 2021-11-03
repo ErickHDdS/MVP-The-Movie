@@ -11,7 +11,7 @@
     .movie {
         display: inline-flex;
         margin-left: 90px;
-        margin-bottom: 15px;
+        margin-bottom: 55px;
     }
 
     .movie-infos {
@@ -48,39 +48,38 @@
 
 @media (orientation: portrait) {
     .movie-video {
-        display: flex;
-        padding: 10px 15px 0 15px;
+        max-inline-size:-webkit-fill-available;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
-    .movie-title {
-        font-size: 18px;
-        text-align: center;
-        padding: 0px 5px 0 5px;
+    .movie-infos {
+        text-align:-webkit-center
     }
 
-    .movie-synopsis {
-        display: flex;
-        padding: 0px 5px 0 5px;
-    }
-
-    .movie-synopsis>textarea.textarea {
-        width: -webkit-fill-available;
+     .movie-detail>textarea {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: -webkit-fill-available;
         background-color: #C4C4C4;
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         resize: none;
-        font-size: 15px;
-        margin-bottom: 5px;
-        padding: 10px;
-    }  
+    } 
 
-    .movie-original-tile, .movie-genres, .movie-premiere, .movie-adult-question, .movie-time {
-        text-align: center;
-        background-color: #C4C4C4;
-        margin-top: 5px;
+     .movie-duration {
+        margin-left: 20px;
+        display: inline; 
+     } 
+
+     .movie-avaliation {
+        padding-top: 10px;
+        padding-left: 130px;
+        display: block;
     }
 
-    .avaliation {
-        margin: 5px 0px 0px 120px;
+    .slick-next {
+        display: none !important;
     }
+
 }
