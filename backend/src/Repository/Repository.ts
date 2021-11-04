@@ -47,21 +47,6 @@ async function GetMoviesDetails(movieId: number) {
     };
 };
 
-async function GetSimiliarMoviesList(movieId: number) {
-    const response = await api.get(`/3/movie/${movieId}/similar?api_key=${api_key}&language=en-US&page=1`);
-    if (response.status >= 200 && response.status < 300) {
-        const movieSimiliar = response.data;
-        return {
-            status: true,
-            data: movieSimiliar,
-        };
-    };
-    return {
-        status: false,
-        data: "Failed the request"
-    };
-};
-
 async function GetMoviesRealiseList() {
     const response = await api.get(`/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`);
     if (response.status >= 200 && response.status < 300) {
@@ -93,4 +78,20 @@ async function GetVideoMovie(movieId: number) {
     };
 };
 
-export { GetGenresList, GetMoviesGenre, GetMoviesDetails, GetSimiliarMoviesList, GetMoviesRealiseList, GetVideoMovie};
+async function GetSearchResults(query: string) {
+    const response = await api.get(`/3/search/movie?api_key=${api_key}&language=en-US&page=1&query=${query}`);
+   
+    if (response.status >= 200 && response.status < 300) {
+        const resultSearch = response.data;
+        return {
+            status: true,
+            data: resultSearch,
+        };
+    };
+    return {
+        status: false,
+        data: "Failed the request"
+    };
+};
+
+export { GetGenresList, GetMoviesGenre, GetMoviesDetails, GetMoviesRealiseList, GetVideoMovie, GetSearchResults};

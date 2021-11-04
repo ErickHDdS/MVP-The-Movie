@@ -35,23 +35,6 @@ class MovieController {
             console.error({err});
         };
     };
-    
-    // movie similiar controllers
-    async getMovieSimiliar (request: Request, response:Response) {
-        try {
-            const movieDetailData = new MovieService();
-            const movie = request.params.movie;
-            const movieSimiliar = await movieDetailData.getMovieSimiliarList(parseInt(movie));
-
-            if(Number.isInteger(parseInt(movie)) && movieSimiliar != null){
-                return response.send(movieSimiliar)
-            };
-
-            return response.status(500).send({ err: 'Err' });
-        } catch(err) {
-            console.error({err});
-        };
-    };
 
     // movie realise list
     async getMoviesRealiseList (request: Request, response: Response) {
@@ -65,7 +48,7 @@ class MovieController {
 
             return response.status(500).send({ err: 'Err'});
         } catch (err) {
-            console.log({err});
+            console.error({err});
         };
     };
 
