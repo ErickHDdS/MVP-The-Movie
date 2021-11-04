@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack'
-import { getMoviesRealiseList, getMovieDetail, getMovieVideo } from '../../APIs/GetMovie';
+import { getMovieDetail, getMovieVideo } from '../../APIs/GetMovie';
 import './style.css';
 
 let quantSlides = 5;

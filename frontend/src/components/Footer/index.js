@@ -14,6 +14,13 @@ function date() {
 function Footer() {
     return (
         <footer className="main-footer">
+
+            <div className="footer-icon-commit">
+                <Link href="https://www.linkedin.com/company/commitjr/?originalSubdomain=br" underline="hover">
+                    {<CommitJr />}
+                </Link>
+            </div>
+
             <div className="footer-icon-developer">
                 Developed by 
                 <Link 
@@ -29,12 +36,6 @@ function Footer() {
                 </Link>   
                 
                 Copyright © {date()}
-            </div>
-
-            <div className="footer-icon-commit">
-                <Link href="https://www.linkedin.com/company/commitjr/?originalSubdomain=br" underline="hover">
-                    {<CommitJr />}
-                </Link>
             </div>
 
             <div className="footer-icon-logo">

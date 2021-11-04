@@ -1,26 +1,15 @@
 .main-footer {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:400;
     text-align: center;
     background-color: #A4A4A4;
-    font-size: 32px;
+    font-size: 20px;
     color: #515151;
-}
-
-@media (orientation: landscape) {
-    .footer-icon-commit{
-        text-align: left;
-        margin-top: -110px;
-        margin-left: 70px;
-    }
-
-    .footer-icon-logo{
-        text-align: right;
-        margin-right: 90px;
-        margin-top: -100px;
-    }
+    display: flex;
+    justify-content: space-around;
+    align-items: center
 }
 
 @media (orientation: portrait) {

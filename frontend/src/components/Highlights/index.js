@@ -84,8 +84,8 @@ function Highlights() {
       limite = limite-3;
     }
     else {
-      quantCards = quantCards-3;
-      limite = limite+3
+      quantCards = quantCards-15;
+      limite = limite+15;
     }
     handleGetMovieDetail();
   }
