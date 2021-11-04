@@ -20,11 +20,13 @@
     }
 
     .movie-title {
+        width: -webkit-fill-available;
         font-size: 32px;
     }
 
     .movie-detail>textarea {
         width: -webkit-fill-available;
+        margin-right: 40px;
         display: block;
         background-color: #C4C4C4;
         border: none;
