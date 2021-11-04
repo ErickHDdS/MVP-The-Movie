@@ -21,7 +21,7 @@ function Realeases() {
                 Realeases
             </h1>
 
-            {moviesRealiseList.length != 0 && (
+            {moviesRealiseList.length !== 0 && (
                 <div className="slider">
                 <SliderMovie movies={moviesRealiseList} /> 
                 </div>

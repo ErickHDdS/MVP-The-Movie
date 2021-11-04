@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from '@mui/material/Link';
 import './style.css';
 import {ReactComponent as LogoIcon} from '../../assets/erick_logo.svg';
@@ -39,7 +39,7 @@ function Header() {
         </section>
 
         <section className="search-results">
-            {searchResults.length != 0 && (                
+            {searchResults.length !== 0 && (                
                 <div className="slider">
                     <div className = "search-title">
                         Search Results

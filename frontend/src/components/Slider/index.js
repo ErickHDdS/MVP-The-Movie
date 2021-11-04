@@ -31,7 +31,7 @@ function SliderMovie(moviesInput) {
     async function handleGetMovieVideo() {
         let dataMovie;
         let movieVideo = [];
-            if(moviesInfos.length != moviesInput.movies.length ) {
+            if(moviesInfos.length !== moviesInput.movies.length ) {
                 for (var i = 0; i < moviesInfos.length; i++) {
                     dataMovie = await getMovieVideo(moviesInfos.at(i).data.data.id);
                     if(dataMovie.data.data.results.at(0)!=null)
@@ -122,7 +122,7 @@ function SliderMovie(moviesInput) {
                                 <p></p><strong>
                                     Adult content:
                                 </strong> 
-                                    {movie.data.data.adult == false ? (" False") : (" True")}
+                                    {movie.data.data.adult === false ? (" False") : (" True")}
                                 <strong className="movie-duration">
                                     Duration:
                                 </strong> 
