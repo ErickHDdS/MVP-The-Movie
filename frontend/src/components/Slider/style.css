@@ -9,13 +9,14 @@
 
 @media (orientation: landscape) {
     .movie {
-        display: inline-flex;
+        display: flex;
         margin-left: 90px;
         margin-bottom: 55px;
     }
 
     .movie-infos {
         margin-left: 30px;
+        width: max-content;
     }
 
     .movie-title {
@@ -24,6 +25,7 @@
 
     .movie-detail>textarea {
         width: -webkit-fill-available;
+        display: block;
         background-color: #C4C4C4;
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -57,9 +59,9 @@
     }
 
      .movie-detail>textarea {
-        padding-left: 10px;
-        padding-right: 10px;
-        max-width: -webkit-fill-available;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: -webkit-fill-available;
         background-color: #C4C4C4;
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -81,5 +83,4 @@
     .slick-next {
         display: none !important;
     }
-
 }
