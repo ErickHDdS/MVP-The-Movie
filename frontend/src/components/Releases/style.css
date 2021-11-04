@@ -9,7 +9,7 @@
 
     .title {
         text-align: center;
-        padding-top: 40px;
+        padding-top: 80px;
         font-size: 35px;
         text-decoration-line: underline;
         color: #515151;
@@ -19,7 +19,7 @@
 @media (orientation: portrait) {
     .main-realeases {
         background-color: #C4C4C4;
-        height: 1100px;
+        height: 1200px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight:400;
         font-size: 18px;
@@ -27,7 +27,7 @@
 
     .title {
         text-align: center;
-        padding-top: 20px;
+        padding-top: 60px;
         font-size: 35px;
         text-decoration-line: underline;
         color: #515151;

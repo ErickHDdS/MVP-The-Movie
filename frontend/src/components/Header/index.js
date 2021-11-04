@@ -17,7 +17,7 @@ function Header() {
     const [searchResults, setSearchResults] = useState([]);
 
     async function handleGetResults() {
-        const results = await getSearch();
+        const results = await getSearch(search);        
         setSearchResults(results.data.data.results);
     }
 

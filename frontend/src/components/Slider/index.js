@@ -10,7 +10,6 @@ let quantSlides = 5;
 let limite = 15;
 
 function SliderMovie(moviesInput) {
-    console.log("inf",moviesInput)
     const [moviesInfos, setMoviesInfos] = useState([]);
     const [moviesVideos, setMoviesVideos] = useState([]);
     const [moviesInfosComplete, setMoviesInfosComplete] = useState([]);
@@ -32,11 +31,14 @@ function SliderMovie(moviesInput) {
     async function handleGetMovieVideo() {
         let dataMovie;
         let movieVideo = [];
-            for (var i = 0; i < moviesInfos.length; i++) {
-                dataMovie = await getMovieVideo(moviesInfos.at(i).data.data.id);
-                movieVideo.push(dataMovie.data.data.results.at(0).key);
+            if(moviesInfos.length != moviesInput.movies.length ) {
+                for (var i = 0; i < moviesInfos.length; i++) {
+                    dataMovie = await getMovieVideo(moviesInfos.at(i).data.data.id);
+                    if(dataMovie.data.data.results.at(0)!=null)
+                    movieVideo.push(dataMovie.data.data.results.at(0).key);
+                }
+                setMoviesVideos(movieVideo);
             }
-            setMoviesVideos(movieVideo);
     }
 
     function updateInfos() {

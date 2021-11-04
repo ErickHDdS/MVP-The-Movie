@@ -53,7 +53,7 @@
     }
 
     .movie-infos {
-        text-align:-webkit-center
+        text-align:-webkit-center;
     }
 
      .movie-detail>textarea {
@@ -64,6 +64,7 @@
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         resize: none;
+        text-align: justify;
     } 
 
      .movie-duration {
