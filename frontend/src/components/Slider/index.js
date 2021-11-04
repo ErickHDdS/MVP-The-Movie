@@ -100,6 +100,7 @@ function SliderMovie(moviesInput) {
                                     maxRows={7}
                                     disabled
                                     defaultValue={"Synopsis: "+movie.data.data.overview}
+                                    style= {{width:600}}
                                     />
                                 <p></p><strong>
                                     Original Title: 

@@ -26,7 +26,7 @@
 
     .movie-detail>textarea {
         width: -webkit-fill-available;
-        margin-right: 40px;
+        padding-right: 40px;
         display: block;
         background-color: #C4C4C4;
         border: none;
@@ -61,9 +61,9 @@
     }
 
      .movie-detail>textarea {
-        padding-left: 20px;
-        padding-right: 20px;
-        width: -webkit-fill-available;
+        padding-left: 15px;
+        padding-right: 15px;
+        max-width: -webkit-fill-available;
         background-color: #C4C4C4;
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
