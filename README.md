@@ -38,8 +38,8 @@ Tal aplicação, lista alguns filmes listados como "Lançamentos", bem como a ex
 ### 2. Instale o Yarn
 > `npm install --global yarn`
 ### 3. Para instalar os pacotes necessários, acesso o terminal: <br>
->   3.1. `$yarn` Na pasta do backend <br>
->   3.2. `$yarn` Na pasta do frontend <br>
+>   3.1. `$yarn` ou `npm install` Na pasta do backend <br>
+>   3.2. `$yarn` ou `npm install` Na pasta do frontend <br>
 
 
 ## Realizado por:
